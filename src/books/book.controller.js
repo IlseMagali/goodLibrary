@@ -20,23 +20,9 @@ exports.createBook = async payload => {
   let genreFound;
   let genreArray = payload.genre;
 
-  // validate array of genres could be part of the genre service
-  // containing all this:
-  if (genreArray.length !== 0) {
-    genreArray.forEach(function(elem) {
-      try {
-        genreFound = Genre.findById(elem);
-        console.log(elem);
-      } catch (err) {
-        next(err);
-      }
-    });
-
-    // validate the object id related to genre:
-    // making some async stuff with promise.all() 
-    // let genreFound = await Genre.findById(payload.genre);
-  }
-  /* let genreFound = Genre.findById(payload.genre); */
+  // hacer uso de genre.controller
+  // findGenres
+  // diffByGenresId
   const book = new Book(payload);
 
   return book.save();

@@ -9,4 +9,5 @@ const BookSchema = new Schema({
         genre: [{type: Schema.Types.ObjectId, ref: 'Genre'}]
 });
 BookSchema.index({ name: "text", title: "text" });
+// index guarda la referenica en RAM
 module.exports = mongoose.model('Book', BookSchema);
